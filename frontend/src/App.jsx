@@ -21,7 +21,7 @@ function App() {
     setLoading(true); // Start loader
 
     try {
-      const response = await axios.post("http://localhost:5000/summarize", formData, {
+      const response = await axios.post("https://ai-pdf-summarizer-ten.vercel.app/summarize", formData, {
         headers: {
           "Content-Type": "multipart/form-data",
         },
