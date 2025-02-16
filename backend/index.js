@@ -39,7 +39,7 @@ app.post("/summarize", upload.single("pdf"), async (req, res) => {
     // Parse the PDF from the buffer
     const pdfData = await pdfParse(pdfBuffer);
     const pdfText = pdfData.text;
-    const summaryPrompt = "I want you to summarize the contents of this pdf. Don't leave out any important data or statistical data. and give the answer pointwise. I dont want any other text except the summary. I'm directly rendering thsi summary in my ai summarizer app."
+    const summaryPrompt = "I want you to summarize the contents of this pdf. Don't leave out any important data or statistical data. and give the answer pointwise. I would like to have subpoints as well. I dont want any other text except the summary. I'm directly rendering thsi summary in my ai summarizer app."
     // Send extracted text to Gemini AI for summarization
     const summary = await summarizeTextWithGemini(pdfText+summaryPrompt);
 
