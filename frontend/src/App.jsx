@@ -1,10 +1,11 @@
 import React, { useState } from "react";
 import axios from "axios";
+import ReactMarkdown from "react-markdown"; // Import ReactMarkdown
 
 function App() {
   const [pdf, setPdf] = useState(null);
   const [summary, setSummary] = useState(null);
-  const [loading, setLoading] = useState(false); // Loader state
+  const [loading, setLoading] = useState(false);
 
   const handleFileChange = (event) => {
     setPdf(event.target.files[0]);
@@ -18,20 +19,20 @@ function App() {
 
     const formData = new FormData();
     formData.append("pdf", pdf);
-    setLoading(true); // Start loader
+    setLoading(true);
 
     try {
-      const response = await axios.post("https://ai-pdf-summarizer-ten.vercel.app/summarize", formData, {
-        headers: {
-          "Content-Type": "multipart/form-data",
-        },
-      });
+      const response = await axios.post(
+        "https://ai-pdf-summarizer-ten.vercel.app/summarize",
+        formData,
+        { headers: { "Content-Type": "multipart/form-data" } }
+      );
 
       setSummary(response.data.summary);
     } catch (error) {
       console.error("Error uploading PDF:", error);
     } finally {
-      setLoading(false); // Stop loader
+      setLoading(false);
     }
   };
 
@@ -54,24 +55,10 @@ function App() {
       {summary && !loading && (
         <div style={{ background: "#f9f9f9", padding: "20px", borderRadius: "8px", maxWidth: "600px", textAlign: "left" }}>
           <h2 style={{ color: "#007BFF", textAlign: "center" }}>🔍 Summary:</h2>
-
-
-
-          <ul style={{ listStyleType: "none", padding: "0" }}>
-            {summary.split("\n").map((point, index) => {
-              const parts = point.split(":");
-              return (
-                <li key={index} style={{ marginBottom: "10px", color: "#000" }}>
-                  <span style={{ fontWeight: "bold", color: "#000" }}>{parts[0]}</span>
-                  <span> {parts.slice(1).join(":")}</span>
-                </li>
-              );
-            })}
-          </ul>
+          <ReactMarkdown>{summary}</ReactMarkdown> {/* Render Markdown properly */}
         </div>
       )}
 
-      {/* Loader Animation */}
       <style>
         {`
           @keyframes spin {
