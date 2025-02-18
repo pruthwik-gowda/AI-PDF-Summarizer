@@ -34,6 +34,7 @@ app.post("/summarize", upload.single("pdf"), async (req, res) => {
       - Include subpoints where necessary to provide more details.
       - Ensure statistical data, facts, and key recommendations are retained.
       - The summary should be clear and concise.
+      - Dont include any other unrelated texts in the end or beginning, this is not a chat
 
       Here is the extracted text:
       ${pdfText}
