@@ -1,4 +1,4 @@
-import { BrowserRouter as Router, Routes, Route } from "react-router-dom";
+import { HashRouter as Router, Routes, Route } from "react-router-dom";
 import Home from "./Pages/Home/Home.jsx";
 import YouTubeSummariser from "./Pages/YouTubeSummariser/YouTubeSummariser.jsx";
 import TextSummariser from "./Pages/TextSummariser/TextSummariser.jsx";
