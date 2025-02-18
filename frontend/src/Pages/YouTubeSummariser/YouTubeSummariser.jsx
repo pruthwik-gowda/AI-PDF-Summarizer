@@ -32,7 +32,7 @@ function YouTubeSummariser() {
   };
 
   return (
-    <div style={{ display: "flex", flexDirection: "column", alignItems: "center", minHeight: "100vh", justifyContent: "center", textAlign: "center", fontFamily: "Arial, sans-serif", padding: "20px" }}>
+    <div style={{ display: "flex", flexDirection: "column", alignItems: "center", minHeight: "97vh", justifyContent: "center", textAlign: "center", fontFamily: "Arial, sans-serif" }}>
       <h1 style={{ color: "#007BFF", marginBottom: "20px" }}>🎥 YouTube Video Summarizer</h1>
 
       {/* Navigation Buttons */}
@@ -114,7 +114,7 @@ function YouTubeSummariser() {
       )}
 
       {summary && !loading && (
-        <div style={{ background: "#f9f9f9", padding: "20px", borderRadius: "8px", maxWidth: "600px", textAlign: "left", width: "100%" }}>
+        <div style={{ background: "#f9f9f9", borderRadius: "8px", maxWidth: "600px", textAlign: "left", width: "100%" }}>
           <h2 style={{ color: "#FF0000", textAlign: "center", marginBottom: "15px" }}>🔍 Summary:</h2>
           <ReactMarkdown>{summary}</ReactMarkdown>
         </div>

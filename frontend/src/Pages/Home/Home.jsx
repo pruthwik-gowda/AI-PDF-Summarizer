@@ -39,7 +39,7 @@ function Home() {
   };
 
   return (
-    <div style={{ display: "flex", flexDirection: "column", alignItems: "center", minHeight: "100vh", justifyContent: "center", textAlign: "center", fontFamily: "Arial, sans-serif", padding: "20px" }}>
+    <div style={{ display: "flex", flexDirection: "column", alignItems: "center", minHeight: "97vh", justifyContent: "center", textAlign: "center", fontFamily: "Arial, sans-serif"}}>
       <h1 style={{ color: "#007BFF", marginBottom: "20px" }}>📄 PDF Summarizer</h1>
 
       {/* Navigation Buttons */}
