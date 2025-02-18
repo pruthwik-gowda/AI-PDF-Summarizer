@@ -20,13 +20,33 @@ const genAI = new GoogleGenerativeAI('AIzaSyD9BrEOXDCJoBgUJtRJ3zM3r8ZM_ZkZaU0');
 
 // Summarize PDF
 app.post("/summarize", upload.single("pdf"), async (req, res) => {
+  const pdfBuffer = req.file.buffer; // Get the file buffer
+
   try {
-    const pdfData = await pdfParse(req.file.buffer);
-    const summary = await summarizeWithGemini(pdfData.text);
+    // Parse the PDF from the buffer
+    const pdfData = await pdfParse(pdfBuffer);
+    const pdfText = pdfData.text;
+
+    // Improved prompt for better structuring with subpoints
+    const summaryPrompt = `
+      Summarize the following PDF content. Structure the summary as follows:
+      - Use main bullet points for key sections.
+      - Include subpoints where necessary to provide more details.
+      - Ensure statistical data, facts, and key recommendations are retained.
+      - The summary should be clear and concise.
+
+      Here is the extracted text:
+      ${pdfText}
+    `;
+
+    // Send extracted text to Gemini AI for summarization
+    const summary = await summarizeTextWithGemini(summaryPrompt);
+
+    // Send the structured summary to the frontend
     res.json({ summary });
   } catch (error) {
-    console.error("Error summarizing PDF:", error);
-    res.status(500).json({ error: "Error processing PDF." });
+    console.error(error);
+    res.status(500).json({ error: "An error occurred while processing the PDF." });
   }
 });
 
