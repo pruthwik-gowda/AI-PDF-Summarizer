@@ -1,9 +1,15 @@
 {
     "routes": [
       {
-        "src": "/[^.]+",
-        "dest": "/",
-        "status": 200
+        "src": "/",
+        "dest": "/"
+      },
+      {
+        "src": "/youtube",
+        "dest": "/"
+      },{
+        "src": "/text-summarise",
+        "dest": "/"
       }
     ]
 }
