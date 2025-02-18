@@ -41,7 +41,7 @@ app.post("/summarize", upload.single("pdf"), async (req, res) => {
     `;
 
     // Send extracted text to Gemini AI for summarization
-    const summary = await summarizeTextWithGemini(summaryPrompt);
+    const summary = await summarizeWithGemini(summaryPrompt);
 
     // Send the structured summary to the frontend
     res.json({ summary });
