@@ -1,8 +1,10 @@
 import React, { useState } from "react";
 import axios from "axios";
-import ReactMarkdown from "react-markdown"; // Import ReactMarkdown
+import ReactMarkdown from "react-markdown";
+import { useNavigate } from "react-router-dom"; // Import useNavigate
 
 function Home() {
+  const navigate = useNavigate(); // Initialize useNavigate
   const [pdf, setPdf] = useState(null);
   const [summary, setSummary] = useState(null);
   const [loading, setLoading] = useState(false);
@@ -40,6 +42,44 @@ function Home() {
     <div style={{ display: "flex", flexDirection: "column", alignItems: "center", minHeight: "100vh", justifyContent: "center", textAlign: "center", fontFamily: "Arial, sans-serif", padding: "20px" }}>
       <h1 style={{ color: "#007BFF", marginBottom: "20px" }}>📄 PDF Summarizer</h1>
 
+      {/* Navigation Buttons */}
+      <div style={{ display: "flex", gap: "15px", marginBottom: "20px" }}>
+        <button 
+          onClick={() => navigate('/youtube')}
+          style={{ 
+            padding: "10px 20px", 
+            cursor: "pointer", 
+            borderRadius: "5px", 
+            border: "none", 
+            background: "#FF0000", // YouTube red
+            color: "white", 
+            fontSize: "16px",
+            display: "flex",
+            alignItems: "center",
+            gap: "5px"
+          }}
+        >
+          <span>🎥</span> YouTube Summarizer
+        </button>
+        <button 
+          onClick={() => navigate('/text-summarise')}
+          style={{ 
+            padding: "10px 20px", 
+            cursor: "pointer", 
+            borderRadius: "5px", 
+            border: "none", 
+            background: "#28a745", // Green color
+            color: "white", 
+            fontSize: "16px",
+            display: "flex",
+            alignItems: "center",
+            gap: "5px"
+          }}
+        >
+          <span>📝</span> Text Summarizer
+        </button>
+      </div>
+
       <div style={{ display: "flex", flexDirection: "column", alignItems: "center", gap: "10px", marginBottom: "20px" }}>
         <input type="file" accept=".pdf" onChange={handleFileChange} />
         <button onClick={handleUpload} style={{ padding: "10px 15px", cursor: "pointer", borderRadius: "5px", border: "none", background: "#007BFF", color: "white", fontSize: "16px" }}>Upload and Summarize</button>
@@ -55,7 +95,7 @@ function Home() {
       {summary && !loading && (
         <div style={{ background: "#f9f9f9", padding: "20px", borderRadius: "8px", maxWidth: "600px", textAlign: "left" }}>
           <h2 style={{ color: "#007BFF", textAlign: "center" }}>🔍 Summary:</h2>
-          <ReactMarkdown>{summary}</ReactMarkdown> {/* Render Markdown properly */}
+          <ReactMarkdown>{summary}</ReactMarkdown>
         </div>
       )}
 
