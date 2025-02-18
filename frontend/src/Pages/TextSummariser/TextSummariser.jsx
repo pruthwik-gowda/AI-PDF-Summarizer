@@ -97,7 +97,7 @@ function TextSummariser() {
             cursor: loading ? "not-allowed" : "pointer",
             borderRadius: "5px",
             border: "none",
-            background: "#007BFF",
+            background: "#28a745",
             color: "white",
             fontSize: "16px",
             opacity: loading ? 0.7 : 1
