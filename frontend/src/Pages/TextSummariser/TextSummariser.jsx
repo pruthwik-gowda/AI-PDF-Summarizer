@@ -17,7 +17,7 @@ function TextSummariser() {
     setSaveStatus("");
 
     try {
-      const response = await fetch("http://localhost:5000/summarize-text", {
+      const response = await fetch("https://ai-pdf-summarizer-ten.vercel.app/summarize-text", {
         method: "POST",
         headers: { "Content-Type": "application/json" },
         body: JSON.stringify({ text }),
@@ -42,7 +42,7 @@ function TextSummariser() {
     }
 
     try {
-      const response = await fetch("http://localhost:5000/save-summary", {
+      const response = await fetch("https://ai-pdf-summarizer-ten.vercel.app/save-summary", {
         method: "POST",
         headers: {
           "Content-Type": "application/json",

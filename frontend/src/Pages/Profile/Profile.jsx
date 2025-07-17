@@ -12,7 +12,7 @@ function Profile() {
       if (!token) return alert("Please log in to view summaries.");
 
       try {
-        const response = await fetch("http://localhost:5000/my-summaries", {
+        const response = await fetch("https://ai-pdf-summarizer-ten.vercel.app/my-summaries", {
           headers: {
             "x-auth-token": token,
           },

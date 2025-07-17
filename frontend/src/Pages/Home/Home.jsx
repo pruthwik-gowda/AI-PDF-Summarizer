@@ -28,7 +28,7 @@ function Home() {
 
     try {
       const response = await axios.post(
-        "http://localhost:5000/summarize",
+        "https://ai-pdf-summarizer-ten.vercel.app/summarize",
         formData,
         { headers: { "Content-Type": "multipart/form-data" } }
       );
@@ -52,7 +52,7 @@ function Home() {
 
     try {
       const response = await axios.post(
-        "http://localhost:5000/save-summary",
+        "https://ai-pdf-summarizer-ten.vercel.app/save-summary",
         {
           type: "pdf",
           summary: summary,
