@@ -2,18 +2,17 @@
   "version": 2,
   "builds": [
     {
-      "src": "index.js",
+      "src": "backend/index.js",
       "use": "@vercel/node"
     }
   ],
   "routes": [
-    { "src": "/summarize", "methods": ["POST"], "dest": "/index.js" },
-    { "src": "/summarize-youtube", "methods": ["POST"], "dest": "/index.js" },
-    { "src": "/summarize-text", "methods": ["POST"], "dest": "/index.js" },
-    { "src": "/save-summary", "methods": ["POST"], "dest": "/index.js" },
-    { "src": "/my-summaries", "methods": ["GET"], "dest": "/index.js" },
-    { "src": "/register", "methods": ["POST"], "dest": "/index.js" },
-    { "src": "/login", "methods": ["POST"], "dest": "/index.js" },
-    { "src": "/(.*)", "dest": "/index.js" }
+    { "src": "/auth/(.*)", "dest": "/backend/index.js" },
+    { "src": "/summarize", "methods": ["POST"], "dest": "/backend/index.js" },
+    { "src": "/summarize-youtube", "methods": ["POST"], "dest": "/backend/index.js" },
+    { "src": "/summarize-text", "methods": ["POST"], "dest": "/backend/index.js" },
+    { "src": "/save-summary", "methods": ["POST"], "dest": "/backend/index.js" },
+    { "src": "/my-summaries", "methods": ["GET"], "dest": "/backend/index.js" },
+    { "src": "/(.*)", "dest": "/backend/index.js" }
   ]
 }
