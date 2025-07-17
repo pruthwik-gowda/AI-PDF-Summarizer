@@ -7,7 +7,20 @@ const authRoutes = require("./routes/auth");
 const summaryRoutes = require("./routes/summary");
 
 const app = express();
-app.use(cors());
+const corsOptions = {
+  origin: [
+    'https://ai-pdf-summarizer-wi24.vercel.app', // Your frontend domain
+    'http://localhost:3000', // For local development
+    'http://localhost:5173', // For Vite local development
+    'https://ai-pdf-summarizer-ten.vercel.app' // Your backend domain (for testing)
+  ],
+  credentials: true,
+  methods: ['GET', 'POST', 'PUT', 'DELETE', 'OPTIONS'],
+  allowedHeaders: ['Content-Type', 'Authorization', 'x-auth-token']
+};
+
+app.use(cors(corsOptions));
+
 app.use(express.json());
 
 // Routes
