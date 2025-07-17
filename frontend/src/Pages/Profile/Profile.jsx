@@ -30,7 +30,6 @@ function Profile() {
   const openModal = (summary) => {
     setSelectedSummary(summary);
     setShowModal(true);
-    alert("📝 Summary opened"); // ✅ Alert added here
   };
 
   const closeModal = () => {
