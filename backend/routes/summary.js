@@ -70,7 +70,7 @@ router.get("/my-summaries", auth, async (req, res) => {
   }
 });
 
-app.get('/', (req, res) => {
+router.get('/', (req, res) => {
   res.send('API is working!');
 });
 
