@@ -47,4 +47,9 @@ router.post("/login", async (req, res) => {
   }
 });
 
+router.get('/test', (req, res) => {
+  res.json({ message: 'Auth routes are working!' });
+});
+
+
 module.exports = router;
