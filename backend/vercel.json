@@ -7,9 +7,13 @@
     }
   ],
   "routes": [
-    { "src": "/summarize", "dest": "/index.js" },
-    { "src": "/summarize-youtube", "dest": "/index.js" },
-    { "src": "/summarize-text", "dest": "/index.js" },
+    { "src": "/summarize", "methods": ["POST"], "dest": "/index.js" },
+    { "src": "/summarize-youtube", "methods": ["POST"], "dest": "/index.js" },
+    { "src": "/summarize-text", "methods": ["POST"], "dest": "/index.js" },
+    { "src": "/save-summary", "methods": ["POST"], "dest": "/index.js" },
+    { "src": "/my-summaries", "methods": ["GET"], "dest": "/index.js" },
+    { "src": "/register", "methods": ["POST"], "dest": "/index.js" },
+    { "src": "/login", "methods": ["POST"], "dest": "/index.js" },
     { "src": "/(.*)", "dest": "/index.js" }
   ]
 }

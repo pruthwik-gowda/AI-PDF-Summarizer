@@ -32,10 +32,10 @@ function YouTubeSummariser() {
   };
 
   return (
-    <div style={{ display: "flex", flexDirection: "column", alignItems: "center", minHeight: "97vh", justifyContent: "center", textAlign: "center", fontFamily: "Arial, sans-serif" }}>
+    <div style={{ display: "flex", flexDirection: "column", alignItems: "center", minHeight: "97vh", justifyContent: "center", textAlign: "center", fontFamily: "'Poppins', sans-serif" }}>
       <h1 style={{ color: "#007BFF", marginBottom: "20px" }}>🎥 YouTube Video Summarizer</h1>
 
-      {/* Navigation Buttons */}
+      {/* Navigation Buttons
       <div style={{ display: "flex", gap: "15px", marginBottom: "20px" }}>
         <button 
           onClick={() => navigate('/')}
@@ -71,7 +71,7 @@ function YouTubeSummariser() {
         >
           <span>📝</span> Text Summarizer
         </button>
-      </div>
+      </div> */}
 
       <div style={{ width: "100%", maxWidth: "600px", marginBottom: "20px" }}>
         <input
@@ -99,7 +99,8 @@ function YouTubeSummariser() {
             background: "#FF0000",
             color: "white",
             fontSize: "16px",
-            opacity: loading ? 0.7 : 1
+            opacity: loading ? 0.7 : 1,
+            fontFamily: "'Poppins', sans-serif"
           }}
         >
           {loading ? "Summarizing..." : "Summarize"}
