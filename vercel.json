@@ -7,12 +7,6 @@
     }
   ],
   "routes": [
-    { "src": "/auth/(.*)", "dest": "/backend/index.js" },
-    { "src": "/summarize", "methods": ["POST"], "dest": "/backend/index.js" },
-    { "src": "/summarize-youtube", "methods": ["POST"], "dest": "/backend/index.js" },
-    { "src": "/summarize-text", "methods": ["POST"], "dest": "/backend/index.js" },
-    { "src": "/save-summary", "methods": ["POST"], "dest": "/backend/index.js" },
-    { "src": "/my-summaries", "methods": ["GET"], "dest": "/backend/index.js" },
     { "src": "/(.*)", "dest": "/backend/index.js" }
   ]
 }
